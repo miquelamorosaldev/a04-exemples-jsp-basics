@@ -17,7 +17,7 @@
     <body>
         <h2>Anem a calcular l'Index de Massa Corporal</h2>
         <%@include file="menu.jsp" %>
-        <form method="post" action="index.jsp">
+        <form method="post" action="index_imc.jsp">
             Pes (en kilograms):<input type="text" name="pes" />
             <br/>
             Alçada (en metres)<input type="text" name="alsada" />

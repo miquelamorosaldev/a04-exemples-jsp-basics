@@ -15,7 +15,7 @@
     <body>
         <h2>JSP DEMOS - CÀLCUL ÀREA I PERIMETRE D'UNA FIGURA</h2>
         <%@include file="menu.jsp" %>
-        <form method="post" action="index.jsp">
+        <form method="post" action="index_arees.jsp">
             <label for="figura">Figura</label>
             <p>
             <select name="figura">
@@ -54,11 +54,22 @@
               }else{
                 CalculArees indice = new CalculArees(base,alsada);
 
-                out.println("<p>L'àrea és de: </p>");
-                out.println(String.format("%.2f", indice.calculaAreaRectangle()));
+                if(figura.equals("figuraTriangle")) {
+                    out.println("<p>L'àrea és de: </p>");
+                    out.println(String.format("%.2f", indice.calculaAreaRectangle()));
                 
-                out.println("<p>El perímetre és de: </p>");
-                out.println(String.format("%.2f", indice.calculaPerimetreRectangle()));
+                    out.println("<p>El perímetre és de: </p>");
+                    out.println(String.format("%.2f", indice.calculaPerimetreRectangle()));
+                } 
+                
+                if(figura.equals("figuraRectangle")) {
+                    out.println("<p>L'àrea és de: </p>");
+                    out.println(String.format("%.2f", indice.calculaAreaTriangle()));
+
+                    out.println("<p>El perímetre és de: </p>");
+                    out.println(String.format("%.2f", indice.calculaPerimetreTriangle()));
+                }
+                
               }
            }
            

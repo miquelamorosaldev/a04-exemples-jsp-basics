@@ -48,7 +48,8 @@ public class CalculArees {
     }
     
     /**
-     * Mètode que fa el càlcul de l'area d'un rectangle; a partir de base i l'alçada
+     * Mètode que fa el càlcul de l'area d'un rectangle; 
+     * a partir de base i l'alçada.
      * @return double Area
      */
     public double calculaAreaRectangle(){
@@ -56,11 +57,30 @@ public class CalculArees {
     }
     
     /**
-     * Mètode que fa el càlcul del perimetre d'un rectangle; a partir de base i l'alçada
+     * Mètode que fa el càlcul del perimetre d'un rectangle; a partir de 
+     * base i l'alçada.
      * @return double Perímetre
      */
     public double calculaPerimetreRectangle(){
         return 2* alsada + 2 * base;
+    }
+    
+    /**
+     * Mètode que fa el càlcul de l'area d'un triangle; a partir de base i l'alçada.
+     * @return double Area
+     */
+    public double calculaAreaTriangle(){
+        return (alsada * base) / 2;
+    }
+    
+    /**
+     * Mètode que fa el càlcul del perimetre d'un d'un triangle; a partir de base 
+     * i l'alçada.
+     * @return double Area
+     */
+    public double calculaPerimetreTriangle(){
+        // https://www.universoformulas.com/matematicas/geometria/triangulo-equilatero/
+        return alsada * 1.73205080757 / 2;
     }
 
 }
