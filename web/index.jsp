@@ -13,12 +13,17 @@
         <link rel="STYLESHEET" href="./css/estil.css" TYPE="text/css">
     </head>
     <body>
-        <%@include file="menu.jsp" %>
-        
         <h2>JSP DEMOS - VALIDACIÓ CADENA ADN</h2>
+        <%@include file="menu.jsp" %>
         <form method="post" action="index.jsp">
-            <label for="adn">Cadena ADN</label>
-            <input type="textarea" name="adn" id="adn" placeholder="AGCT"><br/>
+            <P>
+                <label for="adn">Cadena ADN</label>
+                <input type="textarea" name="adn" id="adn" placeholder="AGCT" />
+            </P>
+            <P>
+                <label for="condicions">He llegit y acepto las condicions</label>
+                <input type="checkbox" name="condicions" value="selected" />
+            </P>
             <input type="submit" name="ok" value="Enviar"/>
         </form> 
 
@@ -29,9 +34,27 @@
            if(request.getParameter("ok")!=null) {
               
               double base, alsada;
-              // Validar el select.
+              // Validar el ADN
               String adn = request.getParameter("adn");
-              out.println("<p>" + adn + "</p>");
+              
+              ADN_Manager adnManager = new ADN_Manager();
+              boolean adnOK = adnManager.validaADN(adn);
+              
+              // Validar la checkbox
+              String casilla = request.getParameter("condicions");
+              boolean casillaOK = casilla!=null && casilla.equals("selected");
+              
+              if(casillaOK && adnOK) {
+                  out.println("<p>" + adn + 
+                          "</p><p>La cadena ADN introduïda és vàlida</p>");
+              } else {
+                  if(!casillaOK) { 
+                      out.println("<p class='error'>No has seleccionat la casella.</p>");
+                  }
+                  if(!adnOK) { 
+                      out.println("<p class='error'>L'ADN introduit no té un format vàlid.</p>");
+                  }
+              }
            }
            
         %>
